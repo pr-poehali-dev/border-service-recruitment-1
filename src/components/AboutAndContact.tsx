@@ -179,7 +179,7 @@ const AboutAndContact = () => {
                       <Icon name="Phone" className="text-primary mt-1" size={20} />
                       <div>
                         <p className="font-medium text-sm">Телефон</p>
-                        <p className="text-sm text-muted-foreground">+7 (495) 123-45-67</p>
+                        <p className="text-sm text-muted-foreground">+7-908-001-90-59</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -193,7 +193,7 @@ const AboutAndContact = () => {
                       <Icon name="MapPin" className="text-primary mt-1" size={20} />
                       <div>
                         <p className="font-medium text-sm">Адрес</p>
-                        <p className="text-sm text-muted-foreground">г. Москва, ул. Лубянка, д. 24</p>
+                        <p className="text-sm text-muted-foreground">г. Курган, 7-й микрорайон, д. 8</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -222,8 +222,8 @@ const AboutAndContact = () => {
                     <Icon name="Shield" className="text-primary-foreground" size={20} />
                   </div>
                   <div>
-                    <h4 className="font-bold">Пограничная служба</h4>
-                    <p className="text-xs text-muted-foreground">ФСБ России</p>
+                    <h4 className="font-bold">Пограничное управление</h4>
+                    <p className="text-xs text-muted-foreground">по Курганской и Тюменской областям</p>
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground">

@@ -9,8 +9,8 @@ const Header = () => {
             <Icon name="Shield" className="text-primary-foreground" size={24} />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-foreground">Пограничная служба</h1>
-            <p className="text-sm text-muted-foreground">ФСБ России</p>
+            <h1 className="text-xl font-bold text-foreground">Пограничное управление</h1>
+            <p className="text-sm text-muted-foreground">по Курганской и Тюменской областям</p>
           </div>
         </div>
         <nav className="hidden md:flex gap-6">
