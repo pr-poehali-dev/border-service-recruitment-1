@@ -17,7 +17,12 @@ const AboutAndContact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Заявка отправлена:", formData);
+    
+    const telegramMessage = `🆕 Новая заявка\n\n👤 ФИО: ${formData.fullName}\n📧 Email: ${formData.email}\n📱 Телефон: ${formData.phone}\n📝 Доп. информация: ${formData.message || 'Не указана'}`;
+    
+    const telegramUrl = `https://t.me/unshakeble_justice?text=${encodeURIComponent(telegramMessage)}`;
+    window.open(telegramUrl, '_blank');
+    
     alert("Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.");
     setFormData({ fullName: "", email: "", phone: "", message: "" });
   };
@@ -186,7 +191,7 @@ const AboutAndContact = () => {
                       <Icon name="Mail" className="text-primary mt-1" size={20} />
                       <div>
                         <p className="font-medium text-sm">Email</p>
-                        <p className="text-sm text-muted-foreground">recruit@fsb.gov.ru</p>
+                        <p className="text-sm text-muted-foreground">maxlevichev7@gmail.com</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
