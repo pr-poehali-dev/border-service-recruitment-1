@@ -55,18 +55,18 @@ const CriteriaAndBenefits = () => {
                 items: ["Форма допуска к гостайне", "Проверка родственников", "Собеседование"]
               }
             ].map((criteria, index) => (
-              <Card key={index} className="hover-scale cursor-pointer transition-all hover:shadow-lg">
+              <Card key={index} className="hover-scale cursor-pointer transition-all fade-in-up group border-primary/20 hover:border-primary/40" style={{ animationDelay: `${index * 100}ms` }}>
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform pulse-glow">
                     <Icon name={criteria.icon as any} className="text-primary" size={24} />
                   </div>
-                  <CardTitle>{criteria.title}</CardTitle>
+                  <CardTitle className="group-hover:text-primary transition-colors">{criteria.title}</CardTitle>
                   <CardDescription>{criteria.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
                     {criteria.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
+                      <li key={i} className="flex items-start gap-2 text-sm group-hover:translate-x-1 transition-transform" style={{ transitionDelay: `${i * 50}ms` }}>
                         <Icon name="Check" className="text-primary mt-0.5 flex-shrink-0" size={16} />
                         <span className="text-muted-foreground">{item}</span>
                       </li>
@@ -153,19 +153,20 @@ const CriteriaAndBenefits = () => {
                 ]
               }
             ].map((benefit, index) => (
-              <Card key={index} className="hover-scale transition-all hover:shadow-lg">
+              <Card key={index} className="hover-scale transition-all fade-in-up group border-primary/20 hover:border-primary/40 overflow-hidden relative" style={{ animationDelay: `${index * 120}ms` }}>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl -z-10 group-hover:scale-150 transition-transform duration-500"></div>
                 <CardHeader>
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform pulse-glow">
                       <Icon name={benefit.icon as any} className="text-primary-foreground" size={28} />
                     </div>
-                    <CardTitle className="text-xl">{benefit.title}</CardTitle>
+                    <CardTitle className="text-xl group-hover:text-primary transition-colors">{benefit.title}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
                     {benefit.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
+                      <li key={i} className="flex items-start gap-3 group-hover:translate-x-1 transition-transform" style={{ transitionDelay: `${i * 50}ms` }}>
                         <Icon name="CheckCircle2" className="text-primary mt-0.5 flex-shrink-0" size={18} />
                         <span className="text-sm text-muted-foreground">{item}</span>
                       </li>

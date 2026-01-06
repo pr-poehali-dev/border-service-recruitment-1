@@ -43,11 +43,11 @@ const HeroAndStats = () => {
               { icon: "TrendingUp", value: "До 100%", label: "Прибавка к пенсии" },
               { icon: "Home", value: "100%", label: "Жилищная программа" }
             ].map((stat, index) => (
-              <div key={index} className="text-center animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div key={index} className="text-center fade-in-up float hover-scale cursor-pointer" style={{ animationDelay: `${index * 150}ms` }}>
+                <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow">
                   <Icon name={stat.icon as any} size={28} className="text-primary" />
                 </div>
-                <div className="text-3xl font-bold text-foreground mb-2">{stat.value}</div>
+                <div className="text-3xl font-bold text-foreground mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
