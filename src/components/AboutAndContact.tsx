@@ -266,6 +266,22 @@ const AboutAndContact = () => {
                 <a href="#" className="hover:text-primary transition-colors">Условия использования</a>
               </div>
             </div>
+
+            <Separator className="my-8" />
+
+            <div className="flex justify-center items-center gap-3 text-xs text-muted-foreground/70">
+              <span>Разработано</span>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 hover:border-primary/40 transition-colors">
+                <img 
+                  src="https://cdn.poehali.dev/projects/fb753728-63bf-457d-8564-d0ddb13a616f/files/71d3fc54-2ff8-4cc6-868e-3af8aad7b0d7.jpg" 
+                  alt="levimax logo" 
+                  className="w-5 h-5 rounded-full object-cover"
+                />
+                <span className="font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  levimax
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
