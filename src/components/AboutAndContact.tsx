@@ -15,26 +15,36 @@ const AboutAndContact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent, messenger?: 'telegram' | 'whatsapp' | 'vk') => {
     e.preventDefault();
     
-    const telegramMessage = `🆕 Новая заявка\n\n👤 ФИО: ${formData.fullName}\n📧 Email: ${formData.email}\n📱 Телефон: ${formData.phone}\n📝 Доп. информация: ${formData.message || 'Не указана'}`;
-    
-    // Универсальная ссылка для всех платформ (iOS, Android, Desktop)
-    const telegramUrl = `https://t.me/unshakeble_justice?text=${encodeURIComponent(telegramMessage)}`;
-    
-    // Для Android и iOS используем location.href вместо window.open
+    const message = `🆕 Новая заявка\n\n👤 ФИО: ${formData.fullName}\n📧 Email: ${formData.email}\n📱 Телефон: ${formData.phone}\n📝 Доп. информация: ${formData.message || 'Не указана'}`;
+    const contactPhone = "+79080019059";
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
-    if (isMobile) {
-      // На мобильных устройствах используем прямой переход
-      window.location.href = telegramUrl;
-    } else {
-      // На десктопе открываем в новой вкладке
-      window.open(telegramUrl, '_blank');
+    let url = '';
+    
+    switch(messenger) {
+      case 'whatsapp':
+        url = `https://wa.me/${contactPhone}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+        break;
+      case 'vk':
+        url = `https://vk.me/public227810851?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+        break;
+      case 'telegram':
+      default:
+        url = `https://t.me/unshakeble_justice?text=${encodeURIComponent(message)}`;
+        if (isMobile) {
+          window.location.href = url;
+        } else {
+          window.open(url, '_blank');
+        }
+        break;
     }
     
-    alert("Спасибо за вашу заявку! Вы будете перенаправлены в Telegram.");
+    alert("Спасибо за вашу заявку! Вы будете перенаправлены в мессенджер.");
     setFormData({ fullName: "", email: "", phone: "", message: "" });
   };
 
@@ -176,14 +186,42 @@ const AboutAndContact = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full gap-2">
-                    <Icon name="Send" size={20} />
-                    Отправить заявку
-                  </Button>
+                  <div className="space-y-3">
+                    <p className="text-sm font-medium text-center">Отправить заявку через:</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <Button 
+                        type="button"
+                        size="lg" 
+                        className="gap-2 bg-[#0088cc] hover:bg-[#0077b5]"
+                        onClick={(e) => handleSubmit(e, 'telegram')}
+                      >
+                        <Icon name="Send" size={20} />
+                        Telegram
+                      </Button>
+                      
+                      <Button 
+                        type="button"
+                        size="lg" 
+                        className="gap-2 bg-[#25D366] hover:bg-[#20BA5A]"
+                        onClick={(e) => handleSubmit(e, 'whatsapp')}
+                      >
+                        <Icon name="MessageCircle" size={20} />
+                        WhatsApp
+                      </Button>
+                      
+                      <Button 
+                        type="button"
+                        size="lg" 
+                        className="gap-2 bg-[#0077FF] hover:bg-[#0066DD]"
+                        onClick={(e) => handleSubmit(e, 'vk')}
+                      >
+                        <Icon name="Send" size={20} />
+                        VK
+                      </Button>
+                    </div>
+                  </div>
 
                   <p className="text-xs text-muted-foreground text-center">
-                    Нажимая кнопку, вы соглашаетесь на обработку персональных данных
-                  </p>
                 </form>
 
                 <Separator className="my-8" />
@@ -260,7 +298,7 @@ const AboutAndContact = () => {
               <div>
                 <h4 className="font-semibold mb-4">Полезные ссылки</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li><a href="#" className="hover:text-primary transition-colors">Официальный сайт ФСБ</a></li>
+                  <li><a href="https://fsb.ru" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Официальный сайт ФСБ</a></li>
                   <li><a href="#" className="hover:text-primary transition-colors">Вопросы и ответы</a></li>
                   <li><a href="#" className="hover:text-primary transition-colors">Нормативные документы</a></li>
                   <li><a href="#" className="hover:text-primary transition-colors">Карьера в ФСБ</a></li>
