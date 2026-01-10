@@ -20,10 +20,21 @@ const AboutAndContact = () => {
     
     const telegramMessage = `🆕 Новая заявка\n\n👤 ФИО: ${formData.fullName}\n📧 Email: ${formData.email}\n📱 Телефон: ${formData.phone}\n📝 Доп. информация: ${formData.message || 'Не указана'}`;
     
+    // Универсальная ссылка для всех платформ (iOS, Android, Desktop)
     const telegramUrl = `https://t.me/unshakeble_justice?text=${encodeURIComponent(telegramMessage)}`;
-    window.open(telegramUrl, '_blank');
     
-    alert("Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.");
+    // Для Android и iOS используем location.href вместо window.open
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // На мобильных устройствах используем прямой переход
+      window.location.href = telegramUrl;
+    } else {
+      // На десктопе открываем в новой вкладке
+      window.open(telegramUrl, '_blank');
+    }
+    
+    alert("Спасибо за вашу заявку! Вы будете перенаправлены в Telegram.");
     setFormData({ fullName: "", email: "", phone: "", message: "" });
   };
 
