@@ -1,14 +1,27 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useEffect, useState } from "react";
 
 const CriteriaAndBenefits = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       {/* Criteria Section */}
-      <section id="criteria" className="py-20">
+      <section id="criteria" className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+          <div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+        </div>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
             <Badge className="mb-4" variant="secondary">Требования</Badge>
             <h3 className="text-3xl md:text-4xl font-bold mb-4">Критерии отбора кандидатов</h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -80,9 +93,13 @@ const CriteriaAndBenefits = () => {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-20 bg-muted/30">
+      <section id="benefits" className="py-20 bg-muted/30 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10" style={{ transform: `translateY(${scrollY * 0.3}px)` }}>
+          <div className="absolute top-40 right-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-40 left-20 w-72 h-72 bg-secondary/5 rounded-full blur-3xl"></div>
+        </div>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" style={{ transform: `translateY(${scrollY * 0.15}px)` }}>
             <Badge className="mb-4" variant="secondary">Преимущества</Badge>
             <h3 className="text-3xl md:text-4xl font-bold mb-4">Льготы и социальные гарантии</h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
