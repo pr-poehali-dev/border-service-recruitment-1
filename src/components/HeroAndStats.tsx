@@ -7,27 +7,16 @@ const HeroAndStats = () => {
     <>
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        {/* Фоновое видео */}
-        <div className="absolute inset-0 -z-20 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
-          >
-            <source src="https://cdn.pixabay.com/video/2022/11/29/141449-777777897_large.mp4" type="video/mp4" />
-          </video>
-          {/* Темный оверлей для читаемости текста */}
-          <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
-        </div>
+        {/* Основной фоновый градиент */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30 -z-10" />
         
-        {/* Градиентный оверлей */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-background/50 to-secondary/40 -z-10" />
+        {/* Анимированные круги */}
+        <div className="absolute top-10 left-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-secondary/25 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         
-        {/* Анимированные акценты */}
-        <div className="absolute top-10 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-secondary/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        {/* Сетка */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(var(--primary-rgb,59,130,246),0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(var(--primary-rgb,59,130,246),0.03)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)] -z-10" />
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20" variant="outline">
