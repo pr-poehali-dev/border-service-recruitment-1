@@ -14,10 +14,10 @@ const Header = () => {
           </div>
         </div>
         <nav className="hidden md:flex gap-6">
-          <a href="#svo" className="text-sm font-medium hover:text-primary transition-colors">Для участников СВО</a>
+          <a href="#svo" className="text-sm font-medium hover:text-primary transition-colors">Для СВО</a>
+          <a href="#calculator" className="text-sm font-medium hover:text-primary transition-colors">Калькулятор</a>
           <a href="#criteria" className="text-sm font-medium hover:text-primary transition-colors">Требования</a>
           <a href="#benefits" className="text-sm font-medium hover:text-primary transition-colors">Льготы</a>
-          <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">О службе</a>
           <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Контакты</a>
         </nav>
       </div>
