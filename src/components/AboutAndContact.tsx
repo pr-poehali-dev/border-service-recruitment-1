@@ -222,6 +222,8 @@ const AboutAndContact = () => {
                   </div>
 
                   <p className="text-xs text-muted-foreground text-center">
+                    Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+                  </p>
                 </form>
 
                 <Separator className="my-8" />
