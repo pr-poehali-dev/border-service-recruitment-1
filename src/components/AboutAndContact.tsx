@@ -15,22 +15,17 @@ const AboutAndContact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent, messenger?: 'telegram' | 'whatsapp' | 'vk') => {
+  const handleSubmit = (e: React.FormEvent, messenger?: 'telegram' | 'vk') => {
     e.preventDefault();
     
     const message = `🆕 Новая заявка\n\n👤 ФИО: ${formData.fullName}\n📧 Email: ${formData.email}\n📱 Телефон: ${formData.phone}\n📝 Доп. информация: ${formData.message || 'Не указана'}`;
-    const contactPhone = "+79080019059";
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
     let url = '';
     
     switch(messenger) {
-      case 'whatsapp':
-        url = `https://wa.me/${contactPhone}?text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank');
-        break;
       case 'vk':
-        url = `https://vk.me/public227810851?text=${encodeURIComponent(message)}`;
+        url = `https://vk.com/techno_ranger`;
         window.open(url, '_blank');
         break;
       case 'telegram':
@@ -188,7 +183,7 @@ const AboutAndContact = () => {
 
                   <div className="space-y-3">
                     <p className="text-sm font-medium text-center">Отправить заявку через:</p>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <Button 
                         type="button"
                         size="lg" 
@@ -197,16 +192,6 @@ const AboutAndContact = () => {
                       >
                         <Icon name="Send" size={20} />
                         Telegram
-                      </Button>
-                      
-                      <Button 
-                        type="button"
-                        size="lg" 
-                        className="gap-2 bg-[#25D366] hover:bg-[#20BA5A]"
-                        onClick={(e) => handleSubmit(e, 'whatsapp')}
-                      >
-                        <Icon name="MessageCircle" size={20} />
-                        WhatsApp
                       </Button>
                       
                       <Button 
