@@ -8,6 +8,9 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 const AboutAndContact = () => {
+  const contactPhone = "+79080019059";
+  const contactPhoneFormatted = "+7-908-001-90-59";
+  
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -181,7 +184,57 @@ const AboutAndContact = () => {
                     Отправить заявку
                   </Button>
 
-                  <p className="text-xs text-muted-foreground text-center">
+                  <Separator className="my-6" />
+                  
+                  <div className="space-y-3">
+                    <p className="text-sm font-medium text-center">Или свяжитесь с нами напрямую:</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        className="gap-2 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-colors"
+                        onClick={() => {
+                          const message = encodeURIComponent('Здравствуйте! Хочу узнать о службе в пограничных органах.');
+                          window.open(`https://wa.me/${contactPhone}?text=${message}`, '_blank');
+                        }}
+                      >
+                        <Icon name="MessageCircle" size={18} />
+                        WhatsApp
+                      </Button>
+                      
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        className="gap-2 hover:bg-[#0088cc] hover:text-white hover:border-[#0088cc] transition-colors"
+                        onClick={() => {
+                          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                          const telegramUrl = 'https://t.me/unshakeble_justice';
+                          if (isMobile) {
+                            window.location.href = telegramUrl;
+                          } else {
+                            window.open(telegramUrl, '_blank');
+                          }
+                        }}
+                      >
+                        <Icon name="Send" size={18} />
+                        Telegram
+                      </Button>
+                      
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        className="gap-2 hover:bg-[#0077FF] hover:text-white hover:border-[#0077FF] transition-colors"
+                        onClick={() => {
+                          window.open('https://vk.me/public227810851', '_blank');
+                        }}
+                      >
+                        <Icon name="Send" size={18} />
+                        VK
+                      </Button>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-muted-foreground text-center mt-4">
                     Нажимая кнопку, вы соглашаетесь на обработку персональных данных
                   </p>
                 </form>
