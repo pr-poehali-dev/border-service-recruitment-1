@@ -51,10 +51,10 @@ const HeroAndStats = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
-              { icon: "Users", value: "15 000+", label: "Военнослужащих" },
-              { icon: "Award", value: "20+", label: "Льгот и гарантий" },
-              { icon: "TrendingUp", value: "До 100%", label: "Прибавка к пенсии" },
-              { icon: "Home", value: "100%", label: "Жилищная программа" }
+              { icon: "Users", value: "25 000+", label: "Военнослужащих" },
+              { icon: "Wallet", value: "80 000 ₽", label: "Средняя зарплата" },
+              { icon: "TrendingUp", value: "До 85%", label: "Пенсия от оклада" },
+              { icon: "Home", value: "6,5 млн ₽", label: "Военная ипотека" }
             ].map((stat, index) => (
               <div key={index} className="text-center fade-in-up float hover-scale cursor-pointer" style={{ animationDelay: `${index * 150}ms` }}>
                 <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow">
