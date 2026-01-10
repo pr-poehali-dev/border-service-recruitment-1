@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroAndStats from "@/components/HeroAndStats";
 import CriteriaAndBenefits from "@/components/CriteriaAndBenefits";
+import SVOBenefits from "@/components/SVOBenefits";
 import SelectionSteps from "@/components/SelectionSteps";
 import FAQ from "@/components/FAQ";
 import AboutAndContact from "@/components/AboutAndContact";
@@ -18,6 +19,7 @@ const Index = () => {
       <div className="relative z-10">
         <Header />
         <HeroAndStats />
+        <SVOBenefits />
         <CriteriaAndBenefits />
         <SelectionSteps />
         <FAQ />
