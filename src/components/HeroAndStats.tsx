@@ -29,7 +29,16 @@ const HeroAndStats = () => {
               Стань частью элитного подразделения ФСБ России. Защищай государственные интересы, получай достойную зарплату и социальные гарантии.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="gap-2" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button 
+                size="lg" 
+                className="gap-2" 
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+              >
                 <Icon name="FileText" size={20} />
                 Подать заявку
               </Button>
